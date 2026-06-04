@@ -1,1 +1,4 @@
 /docs/*.jpg
+
+/backend/app/__pycache__
+/backend/venv
