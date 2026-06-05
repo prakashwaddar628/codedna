@@ -256,3 +256,49 @@ Day 6
 Recommendation Engine v1
 Day 7
 Dashboard
+
+---
+
+## Local Development & Setup
+
+### Prerequisites
+- Python 3.10+
+- Virtual Environment (`venv` is already configured in `/backend/venv`)
+
+### Backend Setup
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Activate the virtual environment:
+   - **Windows (PowerShell)**:
+     ```powershell
+     .\venv\Scripts\Activate.ps1
+     ```
+   - **macOS/Linux**:
+     ```bash
+     source venv/bin/activate
+     ```
+3. Install the dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Configuration & Database
+- Configuration variables are managed by [config.py](file:///d:/Projects/codedna/backend/app/core/config.py) and loaded from the [backend/.env](file:///d:/Projects/codedna/backend/.env) file.
+- **Database Fallback**: If the configured PostgreSQL database is not reachable, the system automatically falls back to a local SQLite database (`sqlite:///./codedna.db`) for smooth local development.
+
+### Running the API Server
+Start the FastAPI server locally:
+```bash
+uvicorn app.main:app --reload
+```
+Once started, you can access the Interactive API Docs at:
+- Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- Redoc: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
+### Running Tests
+Execute the automated test suite:
+```bash
+python -m pytest
+```
